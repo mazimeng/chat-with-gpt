@@ -89,7 +89,7 @@ export async function createStreamingChatCompletion(messages: OpenAIMessage[], p
 
     messagesToSend = await selectMessagesToSendSafely(messagesToSend, 2048);
 
-    const eventSource = new SSE('https://api.openai.com/v1/chat/completions', {
+    const eventSource = new SSE(`${process.env.OPENAI_API_HOST}/v1/chat/completions`, {
         method: "POST",
         headers: {
             'Accept': 'application/json, text/plain, */*',
