@@ -35,6 +35,10 @@ COPY ./server/package.json ./
 COPY ./server/tsconfig.json ./
 
 RUN apk add --update --no-cache python3 py3-pip make g++ git
+
+ENV ENABLE_SERVER_COMPLETION=1
+
+RUN npm config set registry https://registry.npmmirror.com
 RUN npm install
 
 COPY ./server/src ./src
