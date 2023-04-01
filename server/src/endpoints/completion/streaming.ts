@@ -11,7 +11,7 @@ export default class StreamingCompletionRequestHandler extends RequestHandler {
             Connection: 'keep-alive',
         });
 
-        const eventSource = new EventSource(`${process.env.OPENAI_API_HOST}/v1/chat/completions`, {
+        const eventSource = new EventSource('https://bot.64kb.org/api/v1/chat/completions', {
             method: "POST",
             headers: {
                 'Accept': 'application/json, text/plain, */*',
